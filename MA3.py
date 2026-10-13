@@ -105,40 +105,40 @@ def sphere_volume_parallel(n, d, np=10):
     
 def main():
     # Exc1
-    # dots = [1000, 10000, 100000]
-    # for n in dots:
-    #     approximate_pi(n)
+    dots = [1000, 10000, 100000]
+    for n in dots:
+        approximate_pi(n)
 
     # Exc2
-    # n = 100000
-    # d = 2
-    # print(f'Approximated volume of {d}-dimensional sphere = {sphere_volume(n, d)}')
-    # print(f"Actual volume of {d} dimentional sphere = {hypersphere_exact(n, d)}")
+    n = 100000
+    d = 2
+    print(f'Approximated volume of {d}-dimensional sphere = {sphere_volume(n, d)}')
+    print(f"Actual volume of {d} dimentional sphere = {hypersphere_exact(n, d)}")
 
-    # n = 100000
-    # d = 11
-    # print(f'Approximated volume of {d}-dimensional sphere = {sphere_volume(n, d)}')
-    # print(f"Actual volume of {d} dimentional sphere = {hypersphere_exact(n, d)}")
+    n = 100000
+    d = 11
+    print(f'Approximated volume of {d}-dimensional sphere = {sphere_volume(n, d)}')
+    print(f"Actual volume of {d} dimentional sphere = {hypersphere_exact(n, d)}")
 
-    # # Exc3
-    # n = 1000000
-    # d = 11
-    # seq_time_lst = []   # for sequential calculation
-    # for _ in range(3):
-    #     start = pc()
-    #     sphere_volume(n, d)
-    #     stop = pc()
-    #     seq_time_lst.append(stop-start)
-    # print(f"Exc3: Sequential times of {d} and {n}: {seq_time_lst}")
+    # Exc3
+    n = 1000000
+    d = 11
+    seq_time_lst = []   # for sequential calculation
+    for _ in range(3):
+        start = pc()
+        sphere_volume(n, d)
+        stop = pc()
+        seq_time_lst.append(stop-start)
+    print(f"Exc3: Sequential times of {d} and {n}: {seq_time_lst}")
 
-    # njit_time_lst = []  # for Numba calculation
-    # for _ in range(3):
-    #     start = pc()
-    #     sphere_volume_numba(n, d)
-    #     stop = pc()
-    #     njit_time_lst.append(stop-start)
-    # print(f"Exc3: Numba times of {d} and {n}: {njit_time_lst}")
-    # Numba-version runs faster, first call is a bit slower, probably because of compiling
+    njit_time_lst = []  # for Numba calculation
+    for _ in range(3):
+        start = pc()
+        sphere_volume_numba(n, d)
+        stop = pc()
+        njit_time_lst.append(stop-start)
+    print(f"Exc3: Numba times of {d} and {n}: {njit_time_lst}")
+    Numba-version runs faster, first call is a bit slower, probably because of compiling
     
 
     # Exc4
