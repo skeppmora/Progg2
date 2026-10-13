@@ -150,7 +150,7 @@ def main():
     print(f"Exc4: Sequential time of {d} and {n} is {stop-start}")
     
     start = pc() 
-    sphere_volume_parallel(n,d)
+    sphere_volume_parallel(n,d, 16)
     stop = pc()
     print(f'Exc4: Parallell time of {d} and {n} is {stop - start}')
 
