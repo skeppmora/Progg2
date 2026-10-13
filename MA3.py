@@ -14,7 +14,7 @@ import concurrent.futures as future
 from statistics import mean 
 from time import perf_counter as pc
 from functools import reduce
-from numba import njit
+#from numba import njit
 # Exc1
 def approximate_pi(n):
     Nc = 0      # number of points in circle
@@ -66,18 +66,18 @@ def hypersphere_exact(n, d, r=1):
 
 
 #Exc3: numba version
-@njit
-def sphere_volume_numba(n:int, d:int, r:float =1)->float:
-    coordinates = [[random.uniform(-r, r) for _ in range(d)] for _ in range(n)]
+# @njit
+# def sphere_volume_numba(n:int, d:int, r:float =1)->float:
+#     coordinates = [[random.uniform(-r, r) for _ in range(d)] for _ in range(n)]
     
-    def sphere_check(point):
-        return reduce(lambda result, x: result + x**2, point, 0) <= r
+#     def sphere_check(point):
+#         return reduce(lambda result, x: result + x**2, point, 0) <= r
     
-    in_sphere = [point for point in coordinates if sphere_check(point) is True]
-    volume_approx = ((2*r)**d) * (len(in_sphere) / n)
+#     in_sphere = [point for point in coordinates if sphere_check(point) is True]
+#     volume_approx = ((2*r)**d) * (len(in_sphere) / n)
 
-    #np is the number of processes
-    return volume_approx
+#     #np is the number of processes
+#     return volume_approx
 
 #Exc4: parallel code - parallelize actual computations by splitting data
 def sphere_check(args):        
